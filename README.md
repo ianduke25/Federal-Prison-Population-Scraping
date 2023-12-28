@@ -28,7 +28,7 @@ The script outputs a CSV file named facilities_<timestamp>.csv, where <timestamp
 - Datetime of Data
 
 ## Historical Data
-Data has been intermittently collected since September 27, 2023. For access to archived data, please contact Ian Duke. Include in your request a brief description of the intended use of the data.
+Data has been intermittently collected since September 27, 2023. For access to archived data, please email Ian Duke directly. Include in your request a brief description of the intended use of the data.
 
 ## Disclaimer
 This script is intended for educational and research purposes only. Users are responsible for ensuring compliance with any terms of service or usage policies of the websites being scraped.
