@@ -27,6 +27,25 @@ The script outputs a CSV file named facilities_[timestamp].csv, where [timestamp
 - Visiting Status
 - Datetime of Data
 
+## Usage Instructions
+To use the facility_info_scraper.py script, follow these steps:
+
+### Step 1: Set Up Your Environment
+Ensure Python 3.x is installed on your system.
+
+Install the required Python packages: Pandas, Selenium, WebDriver-Manager, pytz, and fake_useragent. You can install these using pip:
+  *pip install pandas selenium webdriver_manager pytz fake_useragent*
+  
+### Step 2: Download ChromeDriver
+The script requires ChromeDriver to interact with the Chrome browser. Ensure you have ChromeDriver that matches your Chrome browser version. It can be downloaded from ChromeDriver's website.
+
+### Step 3: Running the Script
+Navigate to the directory containing facility_info_scraper.py.
+
+Run the script using Python:
+
+*python facility_info_scraper.py*
+
 ## Historical Data
 Data has been intermittently collected since September 27, 2023. For access to archived data, please email Ian Duke directly. Include in your request a brief description of the intended use of the data.
 
