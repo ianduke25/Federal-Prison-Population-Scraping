@@ -20,7 +20,7 @@ This Python script is designed to scrape data from all facility-level Bureau of 
 - fake_useragent
   
 ## Output
-The script outputs a CSV file named facilities_<timestamp>.csv, where <timestamp> is the date and time of the data collection. The CSV file includes the following columns:
+The script outputs a CSV file named facilities_*timestamp*.csv, where *timestamp* is the date and time of the data collection. The CSV file includes the following columns:
 - Title
 - Population
 - Operation Level
