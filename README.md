@@ -11,7 +11,7 @@ This Python script is designed to scrape data from all facility-level Bureau of 
 - Includes a logging system to track data collection dates and times.
 
 ## Prerequisites
-- Python 3.x
+- Python 3.11.3
 - Pandas
 - Selenium
 - ChromeDriver
@@ -31,7 +31,7 @@ The script outputs a CSV file named facilities_[timestamp].csv, where [timestamp
 To use the facility_info_scraper.py script, follow these steps:
 
 ### Step 1: Set Up Your Environment
-Ensure Python 3.x is installed on your system.
+Ensure Python 3.11.3 is installed on your system.
 
 Install the required Python packages: Pandas, Selenium, WebDriver-Manager, pytz, and fake_useragent. You can install these using pip:
   *pip install pandas selenium webdriver_manager pytz fake_useragent*
