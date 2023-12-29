@@ -8,14 +8,15 @@ import time
 import csv
 import pandas as pd
 from datetime import datetime
-import pytz 
+import pytz
 from fake_useragent import UserAgent
 
 
 # manually clean up csv and import
-bop_facilities = pd.read_csv('/Users/ianduke/Desktop/Defense_Data_Center/BOP_Closure_Tracking/facilities.csv') #contains with pre-scraped info of each facility's URL
+# NOTE: replace with local filepath to facilities.csv
+bop_facilities = pd.read_csv('./facilities.csv')
 
-#create list of facilities
+# create list of facilities
 facility_list = bop_facilities['facilities']
 
 # Initialize UserAgent
@@ -23,7 +24,8 @@ ua = UserAgent()
 
 list_of_dictionaries = []
 
-# Initialize the webdriver outside the loopto avoid opening a new browser for each URL.
+# Initialize the webdriver outside the loopto avoid opening a new browser
+# for each URL.
 chrome_options = Options()
 
 # Add the headless argument to run Chrome in the background
@@ -32,7 +34,9 @@ chrome_options.add_argument("--headless")
 # Assign a random user agent for the driver
 chrome_options.add_argument(f"user-agent={ua.random}")
 
-driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
+driver = webdriver.Chrome(
+    executable_path=ChromeDriverManager().install(),
+    options=chrome_options)
 
 for i in range(len(facility_list)):
     facility_dictionary = {}
@@ -55,10 +59,12 @@ for i in range(len(facility_list)):
     suspension_tag = driver.find_element(By.XPATH, '//*[@id="notice_cont"]/h3')
     suspension = suspension_tag.text
 
-    # Get the current datetime and make it timezone-aware using the system's local timezone
+    # Get the current datetime and make it timezone-aware using the system's
+    # local timezone
     current_datetime = datetime.now().astimezone(pytz.utc).astimezone()
     # Format the datetime with timezone
-    formatted_datetime_with_tz = current_datetime.strftime('%Y-%m-%d %H:%M:%S %Z')
+    formatted_datetime_with_tz = current_datetime.strftime(
+        '%Y-%m-%d %H:%M:%S %Z')
 
     facility_dictionary['title'] = title
     facility_dictionary['population'] = population
@@ -79,16 +85,26 @@ for i in range(len(facility_list)):
 driver.quit()
 
 # Specify the directory and filename for the CSV
-# Get the current datetime and make it timezone-aware using the system's local timezone
+# Get the current datetime and make it timezone-aware using the system's
+# local timezone
 current_datetime = datetime.now().astimezone(pytz.utc).astimezone()
 # Format the datetime with timezone
-formatted_datetime_with_tz = current_datetime.strftime('%Y-%m-%d %H:%M:%S %Z').replace(':', '_').replace(' ', '_')
+formatted_datetime_with_tz = current_datetime.strftime(
+    '%Y-%m-%d %H:%M:%S %Z').replace(':', '_').replace(' ', '_')
 file_name = "facilities_" + formatted_datetime_with_tz + ".csv"
-filename = "/Users/ianduke/Desktop/Defense_Data_Center/BOP_Closure_Tracking/" + file_name
+base_path = "./"
+filename = base_path + file_name
 
 # Write the data to the CSV
 with open(filename, mode='w', newline='') as file:
-    writer = csv.DictWriter(file, fieldnames=['title', 'population', 'operation_level', 'visiting_status', 'datetime_of_data'])
+    writer = csv.DictWriter(
+        file,
+        fieldnames=[
+            'title',
+            'population',
+            'operation_level',
+            'visiting_status',
+            'datetime_of_data'])
     writer.writeheader()
     for facility_info in list_of_dictionaries:
         writer.writerow(facility_info)
@@ -96,15 +112,18 @@ with open(filename, mode='w', newline='') as file:
 
 ###If script runs all the way through, log datetime of collection###
 # Read the log
-log_df = pd.read_csv('/Users/ianduke/Desktop/Defense_Data_Center/BOP_Closure_Tracking/collection_log.csv')
+log_df = pd.read_csv(
+    './collection_log.csv')
 
-# Get the current datetime and make it timezone-aware using the system's local timezone
+# Get the current datetime and make it timezone-aware using the system's
+# local timezone
 current_datetime = datetime.now().astimezone(pytz.utc).astimezone()
 # Format the datetime with timezone
 formatted_datetime_with_tz = current_datetime.strftime('%Y-%m-%d %H:%M:%S %Z')
 
 # Append new date to the DataFrame
-log_df = log_df._append({'collection_datetime': formatted_datetime_with_tz}, ignore_index=True)  # Replace 'log_column_name' with the correct column name
+log_df = log_df._append(
+    {'collection_datetime': formatted_datetime_with_tz}, ignore_index=True)
 
 # Write the updated log to the CSV
-log_df.to_csv('/Users/ianduke/Desktop/Defense_Data_Center/BOP_Closure_Tracking/collection_log.csv', index=False)
+log_df.to_csv('./collection_log.csv',index=False)
