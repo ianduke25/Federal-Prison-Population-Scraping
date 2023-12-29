@@ -109,7 +109,6 @@ with open(filename, mode='w', newline='') as file:
     for facility_info in list_of_dictionaries:
         writer.writerow(facility_info)
 
-
 ###If script runs all the way through, log datetime of collection###
 # Read the log
 log_df = pd.read_csv(
