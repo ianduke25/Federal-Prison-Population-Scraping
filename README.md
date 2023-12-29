@@ -33,17 +33,20 @@ To use the facility_info_scraper.py script, follow these steps:
 ### Step 1: Set Up Your Environment
 Ensure Python 3.11.3 is installed on your system.
 
-Install the required Python packages: Pandas, Selenium, WebDriver-Manager, pytz, and fake_useragent. You can install these using pip:
+Install the required Python packages: Pandas, Selenium, WebDriver-Manager, pytz, and fake_useragent. You can install these in Terminal using pip:
 
 *pip install pandas selenium webdriver_manager pytz fake_useragent*
   
 ### Step 2: Download ChromeDriver
 The script requires ChromeDriver to interact with the Chrome browser. Ensure you have ChromeDriver that matches your Chrome browser version. It can be downloaded from ChromeDriver's website.
 
-### Step 3: Running the Script
-Navigate to the directory containing facility_info_scraper.py.
+### Step 3: Working Directory Verification
+Ensure your working directory is the same directory that contains both the facility_info_scraper.py file and the collection_log.csv file. This can be done in Terminal using:
 
-Run the script using Python:
+*cd [directory_path]* 
+
+### Step 4: Running the Script
+Run the script in Terminal using Python:
 
 *python facility_info_scraper.py*
 
