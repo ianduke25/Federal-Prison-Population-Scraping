@@ -34,6 +34,7 @@ To use the facility_info_scraper.py script, follow these steps:
 Ensure Python 3.11.3 is installed on your system.
 
 Install the required Python packages: Pandas, Selenium, WebDriver-Manager, pytz, and fake_useragent. You can install these using pip:
+
   *pip install pandas selenium webdriver_manager pytz fake_useragent*
   
 ### Step 2: Download ChromeDriver
@@ -44,7 +45,7 @@ Navigate to the directory containing facility_info_scraper.py.
 
 Run the script using Python:
 
-*python facility_info_scraper.py*
+  *python facility_info_scraper.py*
 
 ## Historical Data
 Data has been intermittently collected since September 27, 2023. For access to archived data, please email Ian Duke directly. Include in your request a brief description of the intended use of the data.
