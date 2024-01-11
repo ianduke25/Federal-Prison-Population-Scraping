@@ -53,8 +53,8 @@ for i in range(len(facility_list)):
     population_tag = driver.find_element(By.XPATH, '//td[@id="pop_count"]')
     population = population_tag.text
 
-    operations_tag = driver.find_element(By.XPATH, '//*[@id="ops_level"]/a')
-    level = operations_tag.get_attribute('title')
+    # operations_tag = driver.find_element(By.XPATH, '//*[@id="ops_level"]/a')
+    # level = operations_tag.get_attribute('title')
 
     suspension_tag = driver.find_element(By.XPATH, '//*[@id="notice_cont"]/h3')
     suspension = suspension_tag.text
@@ -68,7 +68,7 @@ for i in range(len(facility_list)):
 
     facility_dictionary['title'] = title
     facility_dictionary['population'] = population
-    facility_dictionary['operation_level'] = level
+    facility_dictionary['operation_level'] = 'No Longer Available'
 
     if len(suspension) > 0:
         facility_dictionary['visiting_status'] = 'Suspended'
