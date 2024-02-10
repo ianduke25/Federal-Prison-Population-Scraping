@@ -6,7 +6,6 @@ This Python script is designed to scrape data from all facility-level Bureau of 
 ## Features
 - Scrapes population, visiting status, and operation levels of federal prisons.
 - Efficiently handles multiple requests using Selenium WebDriver with a headless Chrome browser.
-- Incorporates random user-agent generation for each session to reduce the likelihood of being blocked by anti-scraping mechanisms.
 - Outputs data in a structured CSV format for easy analysis and visualization.
 - Includes a logging system to track data collection dates and times.
 
